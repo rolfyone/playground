@@ -1,5 +1,6 @@
 # Capella Besu Teku test
 
+Special thanks to Adrian, as always. Largely based this on (his beku)[https://github.com/ajsutton/merge-scripts/tree/main/beku]
 ## Setup
 
 Set 2 environment variables, to find besu and teku binaries. These are the locations of the applications that will be run in the start scripts.
