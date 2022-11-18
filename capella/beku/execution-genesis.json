@@ -13,7 +13,7 @@
 		"muirGlacierBlock":0,
 		"berlinBlock":0,
 		"londonBlock":0,
-    "shanghaiblock": 12,
+    "shanghaiblock": 11,
     "ethash": {
       "fixeddifficulty": 100
     },
