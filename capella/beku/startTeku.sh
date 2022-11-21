@@ -1,6 +1,8 @@
 #!/bin/bash
 set -euo pipefail
 
+#export LOG4J_CONFIGURATION_FILE=./log4j2-test.xml 
+
 SCRIPTDIR="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 
 if [ -z "$TEKU" ]
@@ -14,6 +16,7 @@ rm -rf /tmp/teku
 rm -rf "${GENESIS}"
 
 $TEKU genesis mock --output-file "${GENESIS}" --network config.yaml --validator-count 256
+
 $TEKU \
   --ee-endpoint http://127.0.0.1:8551 \
   --ee-jwt-secret-file="jwtsecret.txt" \
