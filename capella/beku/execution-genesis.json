@@ -13,11 +13,11 @@
 		"muirGlacierBlock":0,
 		"berlinBlock":0,
 		"londonBlock":0,
-    "shanghaiblock": 16,
+    "shanghaiblock": 12,
     "ethash": {
       "fixeddifficulty": 100
     },
-		"terminalTotalDifficulty": 500
+		"terminalTotalDifficulty": 400
 	},
 	"nonce":"0x42",
 	"timestamp":"0x0",
