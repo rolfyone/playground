@@ -17,6 +17,7 @@ rm -rf "${GENESIS}"
 
 $TEKU genesis mock --output-file "${GENESIS}" --network config.yaml --validator-count 256
 
+# LOG4J_CONFIGURATION_FILE=./log4j2-test.xml
 $TEKU \
   --ee-endpoint http://127.0.0.1:8551 \
   --ee-jwt-secret-file="jwtsecret.txt" \
@@ -28,6 +29,7 @@ $TEKU \
   --network=config.yaml \
   --p2p-private-key-file=teku.key \
   --rest-api-enabled \
+  --rest-api-docs-enabled \
   --Xstartup-target-peer-count=0 \
   --Xstartup-timeout-seconds=0 \
   --initial-state "${GENESIS}" \

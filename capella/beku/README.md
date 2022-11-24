@@ -17,7 +17,7 @@ Run the `startBesu.sh` script to start the besu instance for the network.
 There is a `debugBesu.sh` to enable debug mode.
 
 ## Run Teku
-Run the `startTeku.sh` scriupt to start the teku instance for the network.
+Run the `startTeku.sh` script to start the teku instance for the network.
 
 ## Cleanup
 Run `cleanup.sh` to clean artifacts of these scripts. besu and teku should not be running while this script is run.
@@ -28,4 +28,4 @@ Run `cleanup.sh` to clean artifacts of these scripts. besu and teku should not b
  - Besu starts, produces blocks up to 5, where it hits TTD, and waits for CL.
  - CL Starts in altair at genesis (0), transitions to Bellatrix at epoch 1 (slot 4)
  - TTD detected at slot 4 (CL) and the first POS block on Besu is 4. (symmetric)
- - Capella transition is epoch 3 (slot 12).
+ - Capella transition is epoch 2 (slot 8).
