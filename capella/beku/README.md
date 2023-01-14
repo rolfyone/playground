@@ -11,6 +11,20 @@ export TEKU=$HOME/IdeaProjects/teku/build/install/teku/bin/teku
 ```
 
 
+## Process 
+ To start the cluster, first run `./startTeku.sh`, and it will update genesis time.
+Once it prints genesis time to screen, you then run `./startBesu.sh`, it'll  look like:
+
+```
+➜  beku git:(main) ✗ ./startTeku.sh
+********************
+TEKU Genesis : 1673660296
+BESU Shanghai: 1673660320
+********************
+
+# Now you can run ./startBesu in another console
+```
+
 ## Run Besu
 Run the `startBesu.sh` script to start the besu instance for the network.
 

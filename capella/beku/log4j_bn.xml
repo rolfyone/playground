@@ -8,7 +8,7 @@
     </Appenders>
     <Loggers>
         <Logger name="io.netty" level="INFO"/>
-        <Logger name="com.fasterxml.jackson.databind" level="DEBUG"/>
+        <Logger name="tech.pegasys.teku.validator.remote.typedef" level="trace"/>
         <Root level="INFO">
             <AppenderRef ref="Console"/>
         </Root>

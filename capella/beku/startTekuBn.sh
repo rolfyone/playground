@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-#export LOG4J_CONFIGURATION_FILE=./log4j2-test.xml 
+#export LOG4J_CONFIGURATION_FILE=./log4j2-test.xml
 
 SCRIPTDIR="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 
@@ -12,22 +12,12 @@ then
 fi
 
 GENESIS="${SCRIPTDIR}/beku-genesis.ssz"
-rm -rf /tmp/teku
+rm -rf /tmp/tekuBN
 rm -rf "${GENESIS}"
 
-export GENESIS_TIME=$(($(date +%s) + 30))
-# - 24 seconds per epoch, so epoch 1 for capella
-SHANGHAI=$(($GENESIS_TIME + 24)) 
-sed  -i '' -e "s/\"shanghaiTime\": .*,/\"shanghaiTime\": $SHANGHAI,/" execution-genesis.json
+$TEKU genesis mock --output-file "${GENESIS}" --network config.yaml --validator-count 256
 
-echo "********************"
-echo "TEKU Genesis : $GENESIS_TIME"
-echo "BESU Shanghai: $SHANGHAI" 
-echo "********************"
-
-$TEKU genesis mock --output-file "${GENESIS}" --network config.yaml --validator-count 256 --genesis-time $GENESIS_TIME
-
-# LOG4J_CONFIGURATION_FILE=./log4j2-test.xml
+LOG4J_CONFIGURATION_FILE=./log4j_bn.xml \
 $TEKU \
   --ee-endpoint http://127.0.0.1:8551 \
   --ee-jwt-secret-file="jwtsecret.txt" \
@@ -35,7 +25,7 @@ $TEKU \
   --Xinterop-enabled=true \
   --Xinterop-number-of-validators=256 \
   --Xinterop-owned-validator-start-index=0 \
-  --Xinterop-owned-validator-count=256 \
+  --Xinterop-owned-validator-count=0 \
   --network=config.yaml \
   --p2p-private-key-file=teku.key \
   --rest-api-enabled \
@@ -43,4 +33,4 @@ $TEKU \
   --Xstartup-target-peer-count=0 \
   --Xstartup-timeout-seconds=0 \
   --initial-state "${GENESIS}" \
-  --data-path /tmp/teku
+  --data-path /tmp/tekuBN
